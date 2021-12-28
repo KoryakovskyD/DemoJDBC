@@ -30,14 +30,28 @@ public class DemoJDBC implements AutoCloseable{
         try (DemoJDBC d = new DemoJDBC("jdbc:derby://localhost:1527/tmp","tmp","tmp")) {
             d.info();
             d.init();
+            d.insert();
         } catch (SQLException e) {
             System.out.println("Error 1: " + e.getMessage());
         }
         System.out.println("End.");
     }
 
+    private void insert() throws SQLException {
+        int index = 5;
+        String sql = "SELECT MAX (id) AS \"Maximum Value\" FROM a";
+        rs = st.executeQuery(sql);
+        if (rs != null && rs.next()) {
+
+        }
+        sql = "INSERT INTO a VALUES (" + index + ", 'fifth record')";
+        int res = st.executeUpdate(sql);
+        System.out.println("Inserted " + res + " records.");
+    }
+
     private void init() throws SQLException {
         con = DriverManager.getConnection(url,user,psw);
+        st = con.createStatement();
         if (con == null) {
             throw new SQLException("Connection is null");
         }

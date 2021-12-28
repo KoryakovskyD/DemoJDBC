@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="derbyclient1">
+    <CLASSES>
+      <root url="jar://D:/glassfish-4.1.1/glassfish4/javadb/lib/derbyclient.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
